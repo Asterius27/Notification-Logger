@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         messages = new ArrayList<>();
         setContentView(R.layout.activity_main);
+        Log.d("LOGTEST", "logging works");
     }
 
     @Override
@@ -29,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
         BroadcastReceiver br = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                messages.add(intent.getExtras().getCharSequence(Notification.EXTRA_TEXT).toString());
-                Log.d("NOTIFICATION", intent.getExtras().getCharSequence(Notification.EXTRA_TEXT).toString());
+                // messages.add(intent.getExtras().getCharSequence(Notification.EXTRA_TEXT).toString());
+                Log.d("NOTIFICATION", "Received Notification");
+                // Log.d("NOTIFICATION", intent.getExtras().getCharSequence(Notification.EXTRA_TEXT).toString());
             }
         };
         registerReceiver(br, new IntentFilter("ReceivedNotification"));
