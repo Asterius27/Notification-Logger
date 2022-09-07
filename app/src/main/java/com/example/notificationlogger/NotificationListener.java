@@ -19,8 +19,10 @@ public class NotificationListener extends NotificationListenerService {
     public void onListenerConnected () {
         super.onListenerConnected();
         Log.d("LISTENER", "connected");
-        StatusBarNotification sbn = getActiveNotifications()[0];
-        Log.d("NOTIFICATION", sbn.getPackageName());
+        if (getActiveNotifications().length > 0) {
+            StatusBarNotification sbn = getActiveNotifications()[0];
+            Log.d("NOTIFICATION", sbn.getPackageName());
+        }
     }
 
     @Override
